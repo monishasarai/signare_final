@@ -1,0 +1,147 @@
+/* Center the login box */
+/* Signup link styles */
+ h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 20px;
+  color: red; /* This ensures the heading text is white */
+  font-size: 2rem;
+   /* Optional: Adjust size if needed */
+  text-transform: uppercase; /* Optional: Makes the text uppercase */
+} 
+.signup-link {
+  color: #c0d9f3;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signup-link:hover {
+  color: #55a3f7;
+}
+
+
+
+.login-container {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: url('https://i.makeagif.com/media/4-17-2020/_oY5dH.gif') no-repeat center center/cover;
+    background: url('https://media1.tenor.com/m/9vRAkntogEMAAAAd/background.gif') no-repeat center center/cover; */
+    background: url('https://i.gifer.com/origin/46/462c6f5f67c13830cd9fcdbfc7b55ded.gif') no-repeat center center/cover;
+    /* background: url('https://media1.tenor.com/m/9vRAkntogEMAAAAd/background.gif') no-repeat center center/cover; */
+    /* background: url('https://media.giphy.com/media/26FPOFusQUOKpnXTG/giphy.gif') no-repeat center center/cover; */
+    border-color: whitesmoke;
+    
+    
+    
+  }
+  
+  .login-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    border-color: white;
+  }
+  
+  /* h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px;
+    background-color: rgb(45, 45, 145);
+    color: white; /* This ensures the heading text is white */
+    /* font-size: 2rem; /* Optional: Adjust size if needed */
+    /* text-transform: uppercase; Optional: Makes the text uppercase */ */
+    
+  
+  /* Form styles */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+    color: #fff7f7;
+    font-weight: bold;
+  }
+  
+  input[type='text'],
+  input[type='password'] {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #757373;
+    border-radius: 5px;
+    font-size: 14px;
+    color:white;
+  }
+  
+  /* Checkbox styling */
+  .checkbox {
+    text-align: left;
+    margin-top: 10px;
+  }
+  
+  .checkbox input {
+    margin-right: 10px;
+  }
+  
+  /* Buttons */
+  .login-btn {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #4caf50;
+    color:greenyellow;
+  }
+  
+  .login-btn {
+    background-color: #4caf50;
+    color: #ffffff;
+  }
+  
+  .login-btn.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .create-account-btn {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  /* .login-btn:hover {
+    background-color: #45a049;
+  } */
+  
+  .create-account-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Text styles */
+  .account-text {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #fffcfc;
+  }
+  .error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+  

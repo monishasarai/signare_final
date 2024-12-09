@@ -1,0 +1,129 @@
+.verification-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://i.gifer.com/origin/46/462c6f5f67c13830cd9fcdbfc7b55ded.gif') no-repeat center center/cover;
+}
+
+.verification-box {
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    opacity: 0.95;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+}
+
+.verification-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.verification-message {
+    font-size: 18px;
+    color: #fff9f9;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Label styles */
+.input-label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f0f0f0; /* Match the theme */
+    margin-bottom: 5px;
+}
+
+.about-us-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.about-us-link a {
+    color: #81cdff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.about-us-link a:hover {
+    text-decoration: underline;
+}
+
+/* Input field styles */
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #9b9696;
+    color: black;
+}
+
+/* Enabled button */
+.go-home-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.go-home-btn:hover {
+    background-color: #45a049;
+}
+
+/* Disabled button */
+.go-home-btn:disabled {
+    background-color: #a9a9a9; /* Gray background for disabled state */
+    color: #ffffff; /* White text */
+    cursor: not-allowed; /* Show "not allowed" cursor */
+    opacity: 0.6; /* Slightly transparent */
+}
+
+.go-home-btn:disabled:hover {
+    background-color: #a9a9a9; /* Keep gray background on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .verification-box {
+        padding: 30px;
+        width: 80%;
+    }
+
+    .verification-title {
+        font-size: 28px;
+    }
+
+    .verification-message {
+        font-size: 16px;
+    }
+
+    .input-field {
+        font-size: 14px;
+    }
+
+    .go-home-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  

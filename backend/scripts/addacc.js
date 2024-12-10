@@ -31,13 +31,49 @@ const runAddAccount = async () => {
                 accountNumber: '101',
                 userName: 'User1',
                 email: 'user1@example.com',
-                image: '../uploads/monisha_sign.jpg', // Example local image path
+                image: 'E:\\data\\data\\test\\geniune\\\original_31_1.png', // Example local image path
             },
             {
                 accountNumber: '102',
                 userName: 'User2',
                 email: 'user2@example.com',
-                image: '../uploads/vajra_sign.jpg', // Example local image path
+                image: 'E:\\data\\data\\test\\geniune\\\original_31_2.png', // Example local image path
+            },
+            {
+                accountNumber: '103',
+                userName: 'User3',
+                email: 'user3@example.com',
+                image: 'E:\\data\\data\\test\\geniune\\\original_31_3.png', // Example local image path
+            },
+            {
+                accountNumber: '104',
+                userName: 'User4',
+                email: 'user4@example.com',
+                image: 'E:\\data\\data\\test\\geniune\\\original_31_4.png', // Example local image path
+            },
+            {
+                accountNumber: '105',
+                userName: 'User5',
+                email: 'user5@example.com',
+                image: 'E:\\data\\data\\test\\geniune\\\original_31_5.png', // Example local image path
+            },
+            {
+                accountNumber: '106',
+                userName: 'User6',
+                email: 'user6@example.com',
+                image: 'E:\\data\\data\\test\\geniune\\\original_31_6.png', // Example local image path
+            },
+            {
+                accountNumber: '107',
+                userName: 'User7',
+                email: 'user7@example.com',
+                image: 'E:\\data\\data\\test\\geniune\\\original_31_7.png', // Example local image path
+            },
+            {
+                accountNumber: '108',
+                userName: 'User8',
+                email: 'user8@example.com',
+                image: 'E:\\data\\data\\test\\geniune\\\original_31_8.png', // Example local image path
             },
             // Add more accounts as needed
         ];

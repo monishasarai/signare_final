@@ -8,3 +8,4 @@ Signature Upload: Users can upload signatures for verification.
 Database Integration: Signature data and user information are stored in MongoDB.
 Deep Learning Model: Utilizes pre-trained deep learning models for signature comparison (e.g., ResNet, VGG16).
 Frontend Interface: Built with REACT, providing a smooth user experience for signing up, logging in, and verifying signatures.
+"# signature_verification" 

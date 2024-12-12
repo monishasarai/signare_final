@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from './Navbar'; // Import Navbar component
+import Navbar from './Navbar'; // Import the Navbar component
 import './SignupPage.css'; // Link to external CSS
 
 const SignupPage = () => {
@@ -24,7 +24,6 @@ const SignupPage = () => {
     const strongPasswordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return strongPasswordRegex.test(password);
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +32,7 @@ const SignupPage = () => {
 
     if (!validatePassword(form.password)) {
       setError(
-        'Password must be at least 8 characters long, include one uppercase letter, one number, and one special character.'
+        'Password must be at least 8 characters long, include atleast one uppercase letter, number, and special character.'
       );
       return;
     }
@@ -66,7 +65,7 @@ const SignupPage = () => {
     <div>
       <Navbar /> {/* Include the Navbar */}
       <div className="signup-container">
-        <div className='abc'>Create Account</div>
+        <div className="abc">Create Account</div>
         {error && <p className="error-message">{error}</p>} {/* Display error message */}
         {successMessage && <p className="success-message">{successMessage}</p>} {/* Display success message */}
         <form onSubmit={handleSubmit} className="signup-form">

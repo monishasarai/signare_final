@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar'; // Import the Navbar component
-import './LoginPage.css'; // Add this CSS file for styling
+import './LoginPage.css';
 
 const LoginPage = () => {
   const [form, setForm] = useState({ username: '', password: '' });
@@ -42,10 +42,14 @@ const LoginPage = () => {
       const result = await response.json();
 
       if (response.status === 200) {
-        setSuccessMessage('Login successful! Redirecting to verification...');
+        setSuccessMessage('Login successful! Redirecting...');
         setErrorMessage('');
+
+        // Store user details in local storage
+        localStorage.setItem('userDetails', JSON.stringify(form));
+
         setTimeout(() => {
-          navigate('/verification');
+          navigate('/verification', { state: { username: form.username, password: form.password } });
         }, 1000);
       } else {
         setErrorMessage(result.message || 'Invalid username or password.');
@@ -69,14 +73,10 @@ const LoginPage = () => {
         <div className="login-box">
           <div className="word" style={{ color: 'white' }}>LOGIN</div>
           {successMessage && (
-            <p className="success-message" style={{ color: 'green', fontWeight: 'bold' }}>
-              {successMessage}
-            </p>
+            <p className="success-message">{successMessage}</p>
           )}
           {errorMessage && (
-            <p className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>
-              {errorMessage}
-            </p>
+            <p className="error-message">{errorMessage}</p>
           )}
           <form onSubmit={handleLogin}>
             <div className="form-group">

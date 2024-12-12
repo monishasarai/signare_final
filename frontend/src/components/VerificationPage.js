@@ -17,8 +17,10 @@ const VerificationPage = () => {
   const handleAccountVerification = async () => {
     setError(''); // Clear previous error messages
 
-    if (!accountNumber.trim()) {
-      setError('Please enter a valid account number.');
+    // Input validation: Check account number format
+    const accountNumberRegex = /^[0-9]{10}$/; // Example: Account number must be 10 digits
+    if (!accountNumberRegex.test(accountNumber.trim())) {
+      setError('Invalid account number. It must be a 10-digit number.');
       return;
     }
 
@@ -80,7 +82,7 @@ const VerificationPage = () => {
 
   return (
     <div>
-      <Nav/>
+      <Nav />
       <div className="verification-container">
         <div className="verification-box">
           <h1 className="verification-title">VERIFICATION</h1>
@@ -139,18 +141,17 @@ const VerificationPage = () => {
             {/* Display fake or genuine symbol */}
             <img
               src={
-                similarity>0.9
+                similarity > 0.9
                   ? 'https://png.pngtree.com/png-clipart/20230524/original/pngtree-verified-stamp-png-image_9168723.png' // Genuine symbol URL
                   : 'https://pnghq.com/wp-content/uploads/fake-stamp-png-picture-350x269.png' // Forged symbol URL
               }
               alt={verificationStatus}
               className="modal-image"
             />
-            {/* <h2 className="modal-status">{verificationStatus}</h2> */}
             {/* Display verification result details */}
             <div className="verification-result">
               <h3>Verification Result:</h3>
-              <p>{similarity>0.8 ? 'Signature is Genuine.' : 'Signature is Forged.'}</p>
+              <p>{similarity > 0.8 ? 'Signature is Genuine.' : 'Signature is Forged.'}</p>
               {similarity !== null && <p>Similarity: {Math.round(similarity * 100)}%</p>}
 
               <div className="images-container">
@@ -166,14 +167,6 @@ const VerificationPage = () => {
                     <p>No uploaded signature available.</p>
                   )}
                 </div>
-                {/* <div className="image-box">
-                  <h4>Reference Signature</h4>
-                  {referenceSignature ? (
-                    <img src={referenceSignature} alt="Reference Signature" className="signature-image" />
-                  ) : (
-                    <p>No reference signature available.</p>
-                  )}
-                </div> */}
               </div>
             </div>
 

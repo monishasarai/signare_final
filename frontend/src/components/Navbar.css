@@ -40,7 +40,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1050px;
+  gap: 1020px;
 }
 
 .navbar-logo {

@@ -6,23 +6,36 @@ import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import VerificationPage from './components/VerificationPage';
 import AboutPage from './components/AboutPage';
-import UploadPage from './components/UploadPage'; 
-import Nav from './components/Nav';
+import UploadPage from './components/UploadPage';
+import PrivateRoute from './components/PrivateRoute'; // Import PrivateRoute
 
 const App = () => {
   return (
     <Router>
       {/* Place the Navbar component above the Routes */}
      
-
       {/* Add Routes for the different pages */}
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/verification" element={<VerificationPage />} />
+        <Route
+          path="/verification"
+          element={
+            <PrivateRoute>
+              <VerificationPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/UploadPage"
+          element={
+            <PrivateRoute>
+              <UploadPage />
+            </PrivateRoute>
+          }
+        />
         <Route path="/about-us" element={<AboutPage />} />
-        <Route path="/UploadPage" element={<UploadPage />}/>
       </Routes>
     </Router>
   );

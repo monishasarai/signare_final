@@ -21,6 +21,7 @@ const Navbar = () => {
               <li><Link to="/login" onClick={() => setDropdownVisible(false)}>Login</Link></li>
               <li><Link to="/signup" onClick={() => setDropdownVisible(false)}>Signup</Link></li>
               <li><Link to="/UploadPage" onClick={() => setDropdownVisible(false)}>Upload</Link></li>
+              <li><Link to="/verification" onClick={() => setDropdownVisible(false)}>Verification</Link></li>
               <li><Link to="/about-us" onClick={() => setDropdownVisible(false)}>About Us</Link></li>
             </ul>
           )}

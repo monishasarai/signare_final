@@ -144,3 +144,17 @@
     padding: 10px 15px;
   }
 }
+.success-message {
+  color: rgb(201, 186, 47);
+   font-family: "Knewave", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px; /* Reduced font size */
+  margin-top: 10px; /* Optional spacing */
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 14px; /* Consistent font size with success message */
+}

@@ -4,13 +4,41 @@ from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.preprocessing import image
 from sklearn.metrics.pairwise import cosine_similarity
 from flask_cors import CORS
+import matplotlib.pyplot as plt
+import cv2
+import base64
+from pymongo import MongoClient
+
+# MongoDB connection
+mongo_client = MongoClient("mongodb://localhost:27017/")
+db = mongo_client.yourdb
+collection = db.accounts
 
 # Load the pre-trained model
-trained_model = load_model("E:/Sweety Sarai/Monisha Saraiadvanced_compare_modelmain.h5")
+trained_model = load_model(r"E:\Sweety Sarai\Monisha Saraiadvanced_compare_modelmain.h5")
 
 # Create Flask app
 app = Flask(__name__)
 CORS(app)
+
+# Function to retrieve and store the signature in a file
+def retrieve_and_store_signature(account_number):
+    record = collection.find_one({"accountNumber": str(account_number)})
+    if record and "image" in record:
+        signature_data = record["image"]
+        if isinstance(signature_data, str):  # Decode base64 string
+            signature_data = base64.b64decode(signature_data)
+        stored_signature = np.frombuffer(signature_data, dtype=np.uint8)
+        stored_signature = cv2.imdecode(stored_signature, cv2.IMREAD_GRAYSCALE)
+        stored_signature = cv2.resize(stored_signature, (256, 256))  # Resize for consistency
+
+        # Save the stored signature to a file
+        stored_signature_path = "stored_signature.jpg"
+        cv2.imwrite(stored_signature_path, stored_signature)
+
+        return stored_signature_path
+    else:
+        raise ValueError("Signature not found in the database.")
 
 # Feature extraction model
 def create_advanced_embedding_model(trained_model):
@@ -30,21 +58,21 @@ def preprocess_image(image_path):
 @app.route('/api/signature/verify', methods=['POST'])
 def verify_signature():
     try:
-        # Get the uploaded files
-        stored_signature_path = request.files['stored_signature']
-        verifying_signature_path = request.files['verifying_signature']
+        account_number = request.form['account_number']
+        verifying_signature_file = request.files['verifying_signature']
 
-        # Save the uploaded files temporarily
-        stored_signature_temp = "stored_signature.jpg"
-        verifying_signature_temp = "verifying_signature.jpg"
-        stored_signature_path.save(stored_signature_temp)
-        verifying_signature_path.save(verifying_signature_temp)
+        # Retrieve and save the stored signature
+        stored_signature_path = retrieve_and_store_signature(account_number)
+
+        # Save the verifying signature temporarily
+        verifying_signature_path = "verifying_signature.jpg"
+        verifying_signature_file.save(verifying_signature_path)
 
         # Preprocess images
-        stored_image = preprocess_image(stored_signature_temp)
-        verifying_image = preprocess_image(verifying_signature_temp)
+        stored_image = preprocess_image(stored_signature_path)
+        verifying_image = preprocess_image(verifying_signature_path)
 
-        # Get embeddings
+        # Extract embeddings
         stored_embedding = feature_extractor.predict(stored_image).flatten()
         verifying_embedding = feature_extractor.predict(verifying_image).flatten()
 
@@ -57,12 +85,10 @@ def verify_signature():
 
         return jsonify({"similarity": float(similarity), "result": result})
 
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-for rule in app.url_map.iter_rules():
-    print(f"Endpoint: {rule.endpoint}, Route: {rule.rule}")
-
+        return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(port=5000,debug=True)
+    app.run(port=5000, debug=True)

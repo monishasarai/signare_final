@@ -1,147 +1,160 @@
 /* Center the login box */
-/* Signup link styles */
- h1 {
+h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 20px;
-  color: red; /* This ensures the heading text is white */
+  color: red;
   font-size: 2rem;
-   /* Optional: Adjust size if needed */
-  text-transform: uppercase; /* Optional: Makes the text uppercase */
-} 
+  text-transform: uppercase;
+}
+.word {
+  font-family: "Goblin One", serif;
+  font-weight: 300;
+  font-size: 25px;
+}
 .signup-link {
   color: #c0d9f3;
   font-weight: bold;
   cursor: pointer;
   text-decoration: underline;
 }
-
 .signup-link:hover {
-  color: #55a3f7;
+  color: #21db14;
 }
-
-
 
 .login-container {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background: url('https://i.makeagif.com/media/4-17-2020/_oY5dH.gif') no-repeat center center/cover;
-    background: url('https://media1.tenor.com/m/9vRAkntogEMAAAAd/background.gif') no-repeat center center/cover; */
-    background: url('https://i.gifer.com/origin/46/462c6f5f67c13830cd9fcdbfc7b55ded.gif') no-repeat center center/cover;
-    /* background: url('https://media1.tenor.com/m/9vRAkntogEMAAAAd/background.gif') no-repeat center center/cover; */
-    /* background: url('https://media.giphy.com/media/26FPOFusQUOKpnXTG/giphy.gif') no-repeat center center/cover; */
-    border-color: whitesmoke;
-    
-    
-    
-  }
-  
-  .login-box {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 350px;
-    border-color: white;
-  }
-  
-  /* h1 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 20px;
-    background-color: rgb(45, 45, 145);
-    color: white; /* This ensures the heading text is white */
-    /* font-size: 2rem; /* Optional: Adjust size if needed */
-    /* text-transform: uppercase; Optional: Makes the text uppercase */ */
-    
-  
-  /* Form styles */
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    text-align: left;
-    display: block;
-    margin-bottom: 5px;
-    color: #fff7f7;
-    font-weight: bold;
-  }
-  
-  input[type='text'],
-  input[type='password'] {
-    background: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #757373;
-    border-radius: 5px;
-    font-size: 14px;
-    color:white;
-  }
-  
-  /* Checkbox styling */
-  .checkbox {
-    text-align: left;
-    margin-top: 10px;
-  }
-  
-  .checkbox input {
-    margin-right: 10px;
-  }
-  
-  /* Buttons */
-  .login-btn {
-    width: 100%;
-    padding: 10px 0;
-    margin-top: 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: #4caf50;
-    color:greenyellow;
-  }
-  
-  .login-btn {
-    background-color: #4caf50;
-    color: #ffffff;
-  }
-  
-  .login-btn.disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-  
-  .create-account-btn {
-    background-color: #007bff;
-    color: #ffffff;
-  }
-  
-  /* .login-btn:hover {
-    background-color: #45a049;
-  } */
-  
-  .create-account-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Text styles */
-  .account-text {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #fffcfc;
-  }
-  .error-message {
-    color: red;
-    margin-top: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('./images/main.gif') no-repeat center center/cover;
+  border-color: whitesmoke;
 }
 
-  
+.login-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 350px;
+  border-color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  color: #fff7f7;
+  font-weight: bold;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0;
+  background: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: black;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.signup-input:focus {
+  border-color: #4caf50;
+}
+
+.robot-verification {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.verify-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+  text-align: center;
+}
+
+.bubble-loader {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.bubble-loader span {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  animation: bubble 1.2s infinite ease-in-out;
+  align-items: center;
+  text-align: center;
+}
+
+.bubble-loader span:nth-child(2) {
+  align-items: center;
+  animation-delay: -0.4s;
+  text-align: center;
+}
+
+.bubble-loader span:nth-child(3) {
+  align-items: center;
+  animation-delay: -0.8s;
+  text-align: center;
+}
+
+@keyframes bubble {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.verified-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #28a745;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+.login-btn.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.account-text {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #fffcfc;
+}

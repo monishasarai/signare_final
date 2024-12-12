@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar'; // Import the Navbar component
 import './LoginPage.css'; // Add this CSS file for styling
 
 const LoginPage = () => {
   const [form, setForm] = useState({ username: '', password: '' });
-  const [isRobotChecked, setIsRobotChecked] = useState(false);
+  const [isVerifyingRobot, setIsVerifyingRobot] = useState(false);
+  const [isRobotVerified, setIsRobotVerified] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -13,14 +16,18 @@ const LoginPage = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleCheckboxChange = (e) => {
-    setIsRobotChecked(e.target.checked);
+  const handleVerifyRobot = () => {
+    setIsVerifyingRobot(true);
+    setTimeout(() => {
+      setIsVerifyingRobot(false);
+      setIsRobotVerified(true);
+    }, 3000); // Simulate a 3-second verification process
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (!isRobotChecked) {
+    if (!isRobotVerified) {
       alert('Please confirm you are not a robot!');
       return;
     }
@@ -35,16 +42,19 @@ const LoginPage = () => {
       const result = await response.json();
 
       if (response.status === 200) {
-        // Login successful
-        alert(result.message);
-        navigate('/verification');
+        setSuccessMessage('Login successful! Redirecting to verification...');
+        setErrorMessage('');
+        setTimeout(() => {
+          navigate('/verification');
+        }, 1000);
       } else {
-        // Set the error message for login failure
         setErrorMessage(result.message || 'Invalid username or password.');
+        setSuccessMessage('');
       }
     } catch (error) {
       console.error('Error during login:', error);
       setErrorMessage('An unexpected error occurred. Please try again later.');
+      setSuccessMessage('');
     }
   };
 
@@ -53,55 +63,78 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h1 className="h1" style={{ color: 'white' }}>LOGIN</h1>
-        <form onSubmit={handleLogin}>
-          <div className="form-group">
-            <label>Username:</label>
-            <input
-              type="text"
-              name="username"
-              value={form.username}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={form.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group checkbox">
-            <label>
+    <div>
+      <Navbar /> {/* Add Navbar at the top */}
+      <div className="login-container">
+        <div className="login-box">
+          <div className="word" style={{ color: 'white' }}>LOGIN</div>
+          {successMessage && (
+            <p className="success-message" style={{ color: 'green', fontWeight: 'bold' }}>
+              {successMessage}
+            </p>
+          )}
+          {errorMessage && (
+            <p className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>
+              {errorMessage}
+            </p>
+          )}
+          <form onSubmit={handleLogin}>
+            <div className="form-group">
+              <label>Username:</label>
               <input
-                type="checkbox"
-                checked={isRobotChecked}
-                onChange={handleCheckboxChange}
+                type="text"
+                name="username"
+                value={form.username}
+                onChange={handleChange}
+                className="signup-input"
+                required
               />
-              I am not a robot
-            </label>
-          </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <button
-            type="submit"
-            className={`login-btn ${isRobotChecked ? '' : 'disabled'}`}
-            disabled={!isRobotChecked}
-          >
-            Login
-          </button>
-        </form>
-        <p className="account-text">
-          Don't have an account?{' '}
-          <span className="signup-link" onClick={handleSignupRedirect}>
-            Sign up
-          </span>
-        </p>
+            </div>
+            <div className="form-group">
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                className="signup-input"
+                required
+              />
+            </div>
+            <div className="form-group robot-verification">
+              {isRobotVerified ? (
+                <p className="verified-text">✔ Verified!</p>
+              ) : isVerifyingRobot ? (
+                <div className="bubble-loader">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="verify-btn"
+                  onClick={handleVerifyRobot}
+                >
+                  I am not a robot
+                </button>
+              )}
+            </div>
+            <button
+              type="submit"
+              className={`login-btn ${isRobotVerified ? '' : 'disabled'}`}
+              disabled={!isRobotVerified}
+            >
+              Login
+            </button>
+          </form>
+          <p className="account-text">
+            Don't have an account?{' '}
+            <span className="signup-link" onClick={handleSignupRedirect}>
+              Sign up
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );

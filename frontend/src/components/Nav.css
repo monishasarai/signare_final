@@ -1,0 +1,77 @@
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    
+    color: white;
+    z-index: 1000; /* Ensure the navbar stays above other elements */
+}
+
+.nav-logo {
+    font-size: 48px; /* Increased size */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Dancing Script", serif; /* Dancing Script font */
+    margin-right: auto; /* Push logo to the far left */
+}
+
+
+
+.navbar-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    
+}
+
+.user-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    
+    padding: 15px;
+    border-radius: 10px; /* Rounded corners for consistency */
+    
+    text-align: left; /* Align text properly */
+    z-index: 2000; /* Above other content */
+}
+
+.dropdown-item {
+    color: #f0f0f0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-style: italic; /* Match verification message style */
+}
+
+.dropdown-item:last-child {
+    margin-bottom: 0; /* Remove margin for the last item */
+}
+
+.dropdown-signout {
+    background-color: #4CAF50; /* Match button styles */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-signout:hover {
+    background-color: #45a049; /* Match hover state of buttons */
+}
+
+/* Responsive styles */

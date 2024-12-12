@@ -8,7 +8,6 @@ const MainPage = () => {
     const handleGetStarted = () => {
       navigate('/login');
     };
-
     
 
 

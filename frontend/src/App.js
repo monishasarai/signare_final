@@ -6,12 +6,14 @@ import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import VerificationPage from './components/VerificationPage';
 import AboutPage from './components/AboutPage';
+import UploadPage from './components/UploadPage'; 
+import Nav from './components/Nav';
 
 const App = () => {
   return (
     <Router>
       {/* Place the Navbar component above the Routes */}
-      <Navbar />
+     
 
       {/* Add Routes for the different pages */}
       <Routes>
@@ -20,6 +22,7 @@ const App = () => {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/verification" element={<VerificationPage />} />
         <Route path="/about-us" element={<AboutPage />} />
+        <Route path="/UploadPage" element={<UploadPage />}/>
       </Routes>
     </Router>
   );
